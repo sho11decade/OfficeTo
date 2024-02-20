@@ -17,7 +17,7 @@ namespace OfficeTo
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("OfficeTo\nバージョン:0.1.1\n© source21 All rights reserved\n", "バージョン情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("OfficeTo\nバージョン:0.1.1\n© 2024 source21 All rights reserved\n", "バージョン情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void 開くOToolStripMenuItem_Click(object sender, EventArgs e)
