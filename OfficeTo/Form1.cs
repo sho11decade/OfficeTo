@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.IO;
-
-namespace OfficeTo
+﻿namespace OfficeTo
 {
     public partial class Form1 : Form
     {
