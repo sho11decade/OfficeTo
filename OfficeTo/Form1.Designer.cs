@@ -32,7 +32,7 @@
             menuStrip1 = new MenuStrip();
             ファイルToolStripMenuItem = new ToolStripMenuItem();
             開くOToolStripMenuItem = new ToolStripMenuItem();
-            zipで保存ToolStripMenuItem = new ToolStripMenuItem();
+            SaveAllZip = new ToolStripMenuItem();
             zipで保存ToolStripMenuItem1 = new ToolStripMenuItem();
             画像ToolStripMenuItem = new ToolStripMenuItem();
             動画ToolStripMenuItem = new ToolStripMenuItem();
@@ -41,6 +41,7 @@
             ヘルプToolStripMenuItem = new ToolStripMenuItem();
             バージョン情報ToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            format = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             // 
             // ファイルToolStripMenuItem
             // 
-            ファイルToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 開くOToolStripMenuItem, zipで保存ToolStripMenuItem, zipで保存ToolStripMenuItem1 });
+            ファイルToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 開くOToolStripMenuItem, SaveAllZip, zipで保存ToolStripMenuItem1 });
             ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
             ファイルToolStripMenuItem.Size = new Size(79, 29);
             ファイルToolStripMenuItem.Text = "ファイル";
@@ -64,22 +65,24 @@
             // 開くOToolStripMenuItem
             // 
             開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
-            開くOToolStripMenuItem.Size = new Size(270, 34);
+            開くOToolStripMenuItem.Size = new Size(220, 34);
             開くOToolStripMenuItem.Text = "開く(O)";
             開くOToolStripMenuItem.Click += 開くOToolStripMenuItem_Click;
             // 
-            // zipで保存ToolStripMenuItem
+            // SaveAllZip
             // 
-            zipで保存ToolStripMenuItem.Name = "zipで保存ToolStripMenuItem";
-            zipで保存ToolStripMenuItem.Size = new Size(270, 34);
-            zipで保存ToolStripMenuItem.Text = "Zipで全て保存";
-            zipで保存ToolStripMenuItem.Click += zipで保存ToolStripMenuItem_Click;
+            SaveAllZip.CheckOnClick = true;
+            SaveAllZip.Name = "SaveAllZip";
+            SaveAllZip.Size = new Size(220, 34);
+            SaveAllZip.Tag = "saveall";
+            SaveAllZip.Text = "Zipで全て保存";
+            SaveAllZip.Click += zipで保存ToolStripMenuItem_Click;
             // 
             // zipで保存ToolStripMenuItem1
             // 
             zipで保存ToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { 画像ToolStripMenuItem, 動画ToolStripMenuItem, テキストToolStripMenuItem, その他ToolStripMenuItem });
             zipで保存ToolStripMenuItem1.Name = "zipで保存ToolStripMenuItem1";
-            zipで保存ToolStripMenuItem1.Size = new Size(270, 34);
+            zipで保存ToolStripMenuItem1.Size = new Size(220, 34);
             zipで保存ToolStripMenuItem1.Text = "Zipで保存";
             // 
             // 画像ToolStripMenuItem
@@ -123,21 +126,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 48);
+            label1.Location = new Point(12, 59);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
+            label1.Size = new Size(103, 25);
             label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Text = "ファイル形式:";
+            label1.Click += label1_Click;
+            // 
+            // format
+            // 
+            format.AutoSize = true;
+            format.Location = new Point(121, 59);
+            format.Name = "format";
+            format.Size = new Size(117, 25);
+            format.TabIndex = 2;
+            format.Text = "ファイル未選択";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(format);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "OfficeTo";
             menuStrip1.ResumeLayout(false);
@@ -151,7 +166,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem ファイルToolStripMenuItem;
         private ToolStripMenuItem 開くOToolStripMenuItem;
-        private ToolStripMenuItem zipで保存ToolStripMenuItem;
+        private ToolStripMenuItem SaveAllZip;
         private ToolStripMenuItem zipで保存ToolStripMenuItem1;
         private ToolStripMenuItem 画像ToolStripMenuItem;
         private ToolStripMenuItem 動画ToolStripMenuItem;
@@ -160,5 +175,6 @@
         private ToolStripMenuItem ヘルプToolStripMenuItem;
         private ToolStripMenuItem バージョン情報ToolStripMenuItem;
         private Label label1;
+        private Label format;
     }
 }

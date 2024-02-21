@@ -5,15 +5,17 @@ namespace OfficeTo
     public partial class Form1 : Form
     {
         static string filepath = @"C:";
+        static string fileextension = ".docx";
         public Form1()
         {
             InitializeComponent();
+            SaveAllZip.Enabled = false;
         }
 
         private void zipで保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sa = new SaveFileDialog();
-            sa.Title = "ファイルを保存する";
+            sa.Title = "Zipで保存";
             sa.InitialDirectory = @"C:\";
             sa.FileName = @"zip.zip";
             sa.Filter = "zip(*.zip)|*.zip";
@@ -50,15 +52,25 @@ namespace OfficeTo
             ofDialog.InitialDirectory = @"C:";
 
             //ダイアログのタイトルを指定する
-            ofDialog.Title = "ダイアログのタイトル";
+            ofDialog.Title = "ファイルを開く";
 
             //ダイアログを表示する
             if (ofDialog.ShowDialog() == DialogResult.OK)
             {
+                SaveAllZip.Enabled = true;
                 filepath = ofDialog.FileName;
-                Console.WriteLine(ofDialog.FileName);
-                using (var f = File.Open(filepath, FileMode.OpenOrCreate)) {
-                    label1.Text = f.Name;
+                fileextension = Path.GetExtension(filepath);
+                if (fileextension == ".docx")
+                {
+                    format.Text = "Word(.docx)";
+                }
+                else if (fileextension == ".pptx")
+                {
+                    format.Text = "PowerPoint(.pptx)";
+                }
+                else if (fileextension == ".xlsx")
+                {
+                    format.Text = "Excel(.xlsx)";
                 }
             }
             else
@@ -68,6 +80,16 @@ namespace OfficeTo
 
             // オブジェクトを破棄する
             ofDialog.Dispose();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
